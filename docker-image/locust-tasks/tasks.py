@@ -1,6 +1,14 @@
-from locust import FastHttpUser, task
+import uuid
 
-class BSApis(FastHttpUser):
+from datetime import datetime
+from locust import FastHttpUser, TaskSet, task
+        
+class BsTaskSet(TaskSet):
+    _deviceid = None
+
+    def on_start(self):
+        self._deviceid = str(uuid.uuid4())
+
     @task(10)
     def basic(self):
         self.client.get("/launchpad/v1/stage/21bVUE7tMyqkzHcnWeLca45PFUwkwLU47578GQFKpfpD")
@@ -8,6 +16,9 @@ class BSApis(FastHttpUser):
         self.client.get("/launchpad/v1/available/EdNcP1gw4si8VUrRyP2BnaSV9H971gF9tawDhLbboZv5")
         self.client.get("/launchpad/v1/collection_by_name/chipfunks")
     @task(1)
-    def basic(self):
+    def force(self):
         self.client.get("/launchpad/v1/stage/21bVUE7tMyqkzHcnWeLca45PFUwkwLU47578GQFKpfpD?force=true")
-        
+
+
+class MetricsLocust(FastHttpUser):
+    tasks = {BsTaskSet}
