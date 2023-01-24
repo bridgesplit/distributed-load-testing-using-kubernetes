@@ -11,13 +11,10 @@ class BsTaskSet(TaskSet):
 
     @task(10)
     def basic(self):
-        self.client.get("/launchpad/v1/stage/21bVUE7tMyqkzHcnWeLca45PFUwkwLU47578GQFKpfpD")
-        self.client.get("/launchpad/v1/whitelist/EdNcP1gw4si8VUrRyP2BnaSV9H971gF9tawDhLbboZv5")
-        # self.client.get("/user/nfts_without_meta/7bz4h6T4p39ozCnz7vpDmmiFNssyV1d1Hu3TKcDXmSXu")
-        self.client.get("/launchpad/v1/collection_by_name/chipfunks")
-    # @task(1)
-    # def force(self):
-    #     self.client.get("/launchpad/v1/stage/21bVUE7tMyqkzHcnWeLca45PFUwkwLU47578GQFKpfpD?force=true")
+        self.client.get("/launchpad/v1/num_minted_collection_by_stage/78DBRykF32fTcUwXL2kXUpm2xNREDn6rZG2Drb4bCKbL")
+        self.client.get("/launchpad/v1/user_whitelist/5exd6i2LavtJ7CRAhwnuhbPjYQGERFxe9zREZpDj5Lay/HooKEmrXGx2BdRi3A3GJA1KqKoJQwdqXCBmLnNUbX9LV")
+        self.client.get("/launchpad/v1/collection_by_name/test_mint_43")
+        self.client.get("/launchpad/v1/available/78DBRykF32fTcUwXL2kXUpm2xNREDn6rZG2Drb4bCKbL")
 
 
 class MetricsLocust(FastHttpUser):
