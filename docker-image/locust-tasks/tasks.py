@@ -11,10 +11,10 @@ class BsTaskSet(TaskSet):
 
     @task(10)
     def basic(self):
-        self.client.get("/launchpad/v1/num_minted_collection_by_stage/78DBRykF32fTcUwXL2kXUpm2xNREDn6rZG2Drb4bCKbL")
-        self.client.get("/launchpad/v1/user_whitelist/5exd6i2LavtJ7CRAhwnuhbPjYQGERFxe9zREZpDj5Lay/HooKEmrXGx2BdRi3A3GJA1KqKoJQwdqXCBmLnNUbX9LV")
-        self.client.get("/launchpad/v1/collection_by_name/test_mint_43")
-        self.client.get("/launchpad/v1/available/78DBRykF32fTcUwXL2kXUpm2xNREDn6rZG2Drb4bCKbL")
+        self.client.get("/launchpad/v1/num_minted_collection_by_stage/4fCwYtv87dBtTxMmZP569RyrkXW7cwgojFf9rr17TsHb")
+        self.client.get("/launchpad/v1/user_whitelist/4fCwYtv87dBtTxMmZP569RyrkXW7cwgojFf9rr17TsHb/eLxrJn888nqseqChe5LVijP73PtKzzDg2JdGi2EEtgP")
+        self.client.get("/launchpad/v1/collection_by_name/text_collection_kazc177")
+        self.client.get("/launchpad/v1/available/4fCwYtv87dBtTxMmZP569RyrkXW7cwgojFf9rr17TsHb")
 
 
 class MetricsLocust(FastHttpUser):
