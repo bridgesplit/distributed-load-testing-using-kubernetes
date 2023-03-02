@@ -1,9 +1,14 @@
-## Distributed Load Testing Using GKE and Locust
+gcloud container clusters get-credentials load-test --region us-central1
 
-This is the sample code for the [Distributed load testing using Google Kubernetes Engine](https://cloud.google.com/architecture/distributed-load-testing-using-gke) tutorial.
+export LOCUST_IMAGE_NAME=locust-tasks
+export LOCUST_IMAGE_TAG=latest
+export REGION=us-central1
+export PROJECT=bridgesplit-backend
+export AR_REPO=dist-lt-repo
+gcloud builds submit \
+    --tag ${REGION}-docker.pkg.dev/${PROJECT}/${AR_REPO}/${LOCUST_IMAGE_NAME}:${LOCUST_IMAGE_TAG} \
+    docker-image
 
-## License
-
-This code is Apache 2.0 licensed and more information can be found in `LICENSE`. For information on licenses for third party software and libraries, refer to the `docker-image/licenses` directory.
-
-
+kubectl get services - to get external ip [will be mp http://34.27.89.169:8089/]
+kubectl rollout restart deployment locust-worker - to redeploy a newly updated container
+kubectl scale deployment/locust-worker --replicas=20 -- to increase the number of VMs [please make 1 before ending your load test]

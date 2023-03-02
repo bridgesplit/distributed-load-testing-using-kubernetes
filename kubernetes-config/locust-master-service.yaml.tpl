@@ -37,7 +37,7 @@ apiVersion: v1
 metadata:
   name: locust-master-web
   annotations:
-    networking.gke.io/load-balancer-type: "Internal"
+    networking.gke.io/load-balancer-type: "External"
   labels:
     app: locust-master
 spec:
